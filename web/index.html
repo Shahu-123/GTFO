@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Firesim</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <aside id="sidebar">
+    <h1>Firesim</h1>
+
+    <form id="upload">
+      <label for="video">Room walkthrough video</label>
+      <input id="video" name="video" type="file" accept="video/*" required>
+      <label for="hints">Known measurements (optional)</label>
+      <textarea id="hints" name="hints" rows="3"
+        placeholder="e.g. Room is 3.6 by 4.2 m, ceiling 2.6 m, door 0.85 m wide"></textarea>
+      <button type="submit" id="submit">Build 3D room</button>
+    </form>
+
+    <div class="row">
+      <select id="saved" aria-label="Saved rooms"><option value="">Saved rooms…</option></select>
+      <button type="button" id="sample" class="secondary">Load sample</button>
+    </div>
+
+    <p id="status" role="status"></p>
+
+    <section id="details" hidden>
+      <h2 id="room-name"></h2>
+      <p id="room-dims"></p>
+      <ul id="problems" class="problems"></ul>
+
+      <h3>Risk map</h3>
+      <button type="button" id="run-risk">Build risk map</button>
+      <p id="risk-status" role="status"></p>
+      <div id="risk-results" hidden>
+        <p id="risk-headline"></p>
+        <h3>What makes this room risky</h3>
+        <ol id="factors"></ol>
+        <h3>Where a fire starting is worst</h3>
+        <ol id="sources"></ol>
+      </div>
+
+      <h3>Scenario</h3>
+      <form id="scenario">
+        <label for="ignition">Fire starts at</label>
+        <select id="ignition"></select>
+        <div id="openings"></div>
+        <label for="person-at">Person is</label>
+        <select id="person-at"></select>
+        <label class="toggle"><input id="asleep" type="checkbox"> Asleep</label>
+        <label class="toggle"><input id="alarm" type="checkbox" checked> Smoke alarm fitted</label>
+        <label class="toggle"><input id="stays-low" type="checkbox" checked> Knows to stay low under smoke</label>
+        <label class="toggle"><input id="knows-room" type="checkbox" checked> Knows the room well</label>
+        <button type="submit" id="run-fire">Run simulation</button>
+      </form>
+      <p id="fire-status" role="status"></p>
+      <div id="fire-results" hidden>
+        <p id="outcome"></p>
+        <dl id="fire-summary"></dl>
+        <h3>What happens</h3>
+        <ol id="events"></ol>
+        <p class="note">Educational estimate from a simplified fire model, assumed human
+          behaviour and an AI-estimated room. Not a fire safety assessment.</p>
+      </div>
+
+      <h3>Objects</h3>
+      <ul id="objects"></ul>
+      <h3>Scale references</h3>
+      <ul id="scale"></ul>
+      <h3>Assumptions</h3>
+      <ul id="assumptions"></ul>
+    </section>
+  </aside>
+
+  <main id="stage">
+    <nav id="tabs" hidden>
+      <button type="button" id="tab-sim" class="active">Simulation</button>
+      <button type="button" id="tab-risk">Risk map</button>
+    </nav>
+
+    <section id="sim-view">
+      <canvas id="view"></canvas>
+
+      <dl id="readout" hidden>
+        <div><dt>Time</dt><dd id="r-time"></dd></div>
+        <div><dt>Fire size</dt><dd id="r-hrr"></dd></div>
+        <div><dt>Smoke layer base</dt><dd id="r-layer"></dd></div>
+        <div><dt>Smoke temperature</dt><dd id="r-temp"></dd></div>
+        <div><dt>Visibility in smoke</dt><dd id="r-vis"></dd></div>
+        <div><dt>Carbon monoxide</dt><dd id="r-co"></dd></div>
+        <div><dt>Person</dt><dd id="r-person"></dd></div>
+        <div><dt>Heat dose</dt><dd id="r-heat"></dd></div>
+        <div><dt>Toxic gas dose</dt><dd id="r-gas"></dd></div>
+      </dl>
+
+      <div id="timeline" hidden>
+        <button type="button" id="play" aria-label="Play or pause">Play</button>
+        <input id="scrub" type="range" min="0" max="600" step="0.1" value="0" aria-label="Time">
+        <select id="speed" aria-label="Playback speed">
+          <option value="1">1×</option>
+          <option value="5" selected>5×</option>
+          <option value="20">20×</option>
+        </select>
+        <label class="toggle"><input id="smoke-toggle" type="checkbox" checked> Smoke</label>
+      </div>
+
+      <p id="hint">Drag to orbit, scroll to zoom, right-drag to pan. Click an object to select it.</p>
+    </section>
+
+    <section id="risk-view" hidden>
+      <div id="risk-3d">
+        <canvas id="risk-canvas"></canvas>
+        <div id="overlay-choice" role="radiogroup" aria-label="Map shown on the floor">
+          <label class="toggle"><input type="radio" name="overlay" value="heat" checked> Risk map</label>
+          <label class="toggle"><input type="radio" name="overlay" value="danger"> Danger map</label>
+        </div>
+      </div>
+
+      <div id="plans">
+        <figure>
+          <figcaption>Risk map: the areas that become too hot soonest</figcaption>
+          <svg id="plan-heat" role="img" aria-label="Plan of the room coloured by how soon each spot becomes too hot"></svg>
+          <div class="legend" id="legend-heat"></div>
+          <div class="legend-labels" id="ticks-heat"></div>
+          <p class="note" id="note-heat"></p>
+        </figure>
+        <figure>
+          <figcaption>Danger map: the risk to a person who is at that spot when a fire starts</figcaption>
+          <svg id="plan-danger" role="img" aria-label="Plan of the room coloured by the average harm to a person at each spot"></svg>
+          <div class="legend" id="legend-danger"></div>
+          <div class="legend-labels" id="ticks-danger"></div>
+          <p class="note" id="note-danger"></p>
+        </figure>
+        <p class="note">Red outline: a high-risk item. Grey outline: main furniture. White dashes:
+          the way from the bed to the door. Hover over an item for its full name.</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

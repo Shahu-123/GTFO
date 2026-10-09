@@ -1,0 +1,170 @@
+{
+  "name": "Sample bedroom",
+  "floor": [
+    {"x": 0.0, "y": 0.0},
+    {"x": 3.6, "y": 0.0},
+    {"x": 3.6, "y": 4.2},
+    {"x": 0.0, "y": 4.2}
+  ],
+  "ceiling_height": 2.6,
+  "wall_color": "#e9e4d8",
+  "floor_color": "#b08d62",
+  "openings": [
+    {
+      "id": "door-1", "kind": "door", "wall_index": 0, "offset": 0.3, "width": 0.85,
+      "height": 2.05, "sill_height": 0.0, "is_open": true, "leads_outside_room": true
+    },
+    {
+      "id": "window-1", "kind": "window", "wall_index": 2, "offset": 1.0, "width": 1.4,
+      "height": 1.2, "sill_height": 0.9, "is_open": false, "leads_outside_room": false
+    }
+  ],
+  "objects": [
+    {
+      "id": "bed", "label": "queen bed", "category": "bed", "fuel": "mattress",
+      "is_ignition_source": false,
+      "position": {"x": 2.85, "y": 3.0, "z": 0.0},
+      "size": {"width": 1.5, "depth": 2.0, "height": 1.0},
+      "rotation_deg": 0,
+      "parts": [
+        {"shape": "box", "center": {"x": 0, "y": 0, "z": 0.15}, "size": {"width": 1.5, "depth": 2.0, "height": 0.3}, "rotation_deg": 0, "color": "#6b4a2f"},
+        {"shape": "box", "center": {"x": 0, "y": 0, "z": 0.4}, "size": {"width": 1.45, "depth": 1.95, "height": 0.2}, "rotation_deg": 0, "color": "#f2efe8"},
+        {"shape": "box", "center": {"x": 0, "y": 0.97, "z": 0.5}, "size": {"width": 1.5, "depth": 0.06, "height": 1.0}, "rotation_deg": 0, "color": "#5a3d26"},
+        {"shape": "box", "center": {"x": -0.36, "y": 0.68, "z": 0.56}, "size": {"width": 0.55, "depth": 0.35, "height": 0.12}, "rotation_deg": 0, "color": "#ffffff"},
+        {"shape": "box", "center": {"x": 0.36, "y": 0.68, "z": 0.56}, "size": {"width": 0.55, "depth": 0.35, "height": 0.12}, "rotation_deg": 0, "color": "#ffffff"},
+        {"shape": "box", "center": {"x": 0, "y": -0.27, "z": 0.53}, "size": {"width": 1.47, "depth": 1.4, "height": 0.06}, "rotation_deg": 0, "color": "#3f5f8a"}
+      ]
+    },
+    {
+      "id": "wardrobe", "label": "two-door wardrobe", "category": "wardrobe", "fuel": "wood",
+      "is_ignition_source": false,
+      "position": {"x": 0.3, "y": 2.6, "z": 0.0},
+      "size": {"width": 1.2, "depth": 0.6, "height": 2.0},
+      "rotation_deg": 90,
+      "parts": [
+        {"shape": "box", "center": {"x": 0, "y": 0.01, "z": 1.0}, "size": {"width": 1.2, "depth": 0.58, "height": 2.0}, "rotation_deg": 0, "color": "#c9b79a"},
+        {"shape": "box", "center": {"x": -0.3, "y": -0.29, "z": 1.0}, "size": {"width": 0.58, "depth": 0.02, "height": 1.9}, "rotation_deg": 0, "color": "#d8c8ad"},
+        {"shape": "box", "center": {"x": 0.3, "y": -0.29, "z": 1.0}, "size": {"width": 0.58, "depth": 0.02, "height": 1.9}, "rotation_deg": 0, "color": "#d8c8ad"},
+        {"shape": "box", "center": {"x": -0.05, "y": -0.295, "z": 1.0}, "size": {"width": 0.02, "depth": 0.01, "height": 0.2}, "rotation_deg": 0, "color": "#444444"},
+        {"shape": "box", "center": {"x": 0.05, "y": -0.295, "z": 1.0}, "size": {"width": 0.02, "depth": 0.01, "height": 0.2}, "rotation_deg": 0, "color": "#444444"}
+      ]
+    },
+    {
+      "id": "bookshelf", "label": "bookshelf", "category": "shelf", "fuel": "paper",
+      "is_ignition_source": false,
+      "position": {"x": 0.15, "y": 3.75, "z": 0.0},
+      "size": {"width": 0.8, "depth": 0.3, "height": 1.8},
+      "rotation_deg": 90,
+      "parts": [
+        {"shape": "box", "center": {"x": 0, "y": 0.14, "z": 0.9}, "size": {"width": 0.8, "depth": 0.02, "height": 1.8}, "rotation_deg": 0, "color": "#7a5a3a"},
+        {"shape": "box", "center": {"x": -0.39, "y": 0, "z": 0.9}, "size": {"width": 0.02, "depth": 0.3, "height": 1.8}, "rotation_deg": 0, "color": "#7a5a3a"},
+        {"shape": "box", "center": {"x": 0.39, "y": 0, "z": 0.9}, "size": {"width": 0.02, "depth": 0.3, "height": 1.8}, "rotation_deg": 0, "color": "#7a5a3a"},
+        {"shape": "box", "center": {"x": 0, "y": 0, "z": 0.02}, "size": {"width": 0.76, "depth": 0.3, "height": 0.03}, "rotation_deg": 0, "color": "#7a5a3a"},
+        {"shape": "box", "center": {"x": 0, "y": 0, "z": 0.6}, "size": {"width": 0.76, "depth": 0.3, "height": 0.03}, "rotation_deg": 0, "color": "#7a5a3a"},
+        {"shape": "box", "center": {"x": 0, "y": 0, "z": 1.2}, "size": {"width": 0.76, "depth": 0.3, "height": 0.03}, "rotation_deg": 0, "color": "#7a5a3a"},
+        {"shape": "box", "center": {"x": 0, "y": 0, "z": 1.785}, "size": {"width": 0.76, "depth": 0.3, "height": 0.03}, "rotation_deg": 0, "color": "#7a5a3a"},
+        {"shape": "box", "center": {"x": -0.1, "y": 0, "z": 0.75}, "size": {"width": 0.5, "depth": 0.2, "height": 0.26}, "rotation_deg": 0, "color": "#a33b3b"},
+        {"shape": "box", "center": {"x": 0.12, "y": 0, "z": 1.34}, "size": {"width": 0.46, "depth": 0.2, "height": 0.24}, "rotation_deg": 0, "color": "#2f6f5e"},
+        {"shape": "box", "center": {"x": -0.05, "y": 0, "z": 0.16}, "size": {"width": 0.6, "depth": 0.2, "height": 0.25}, "rotation_deg": 0, "color": "#c9a23a"}
+      ]
+    },
+    {
+      "id": "desk", "label": "writing desk", "category": "desk", "fuel": "wood",
+      "is_ignition_source": false,
+      "position": {"x": 3.3, "y": 0.9, "z": 0.0},
+      "size": {"width": 1.2, "depth": 0.6, "height": 0.75},
+      "rotation_deg": 90,
+      "parts": [
+        {"shape": "box", "center": {"x": 0, "y": 0, "z": 0.735}, "size": {"width": 1.2, "depth": 0.6, "height": 0.03}, "rotation_deg": 0, "color": "#d9c7a3"},
+        {"shape": "box", "center": {"x": -0.56, "y": -0.26, "z": 0.36}, "size": {"width": 0.04, "depth": 0.04, "height": 0.72}, "rotation_deg": 0, "color": "#2b2b2b"},
+        {"shape": "box", "center": {"x": 0.56, "y": -0.26, "z": 0.36}, "size": {"width": 0.04, "depth": 0.04, "height": 0.72}, "rotation_deg": 0, "color": "#2b2b2b"},
+        {"shape": "box", "center": {"x": -0.56, "y": 0.26, "z": 0.36}, "size": {"width": 0.04, "depth": 0.04, "height": 0.72}, "rotation_deg": 0, "color": "#2b2b2b"},
+        {"shape": "box", "center": {"x": 0.56, "y": 0.26, "z": 0.36}, "size": {"width": 0.04, "depth": 0.04, "height": 0.72}, "rotation_deg": 0, "color": "#2b2b2b"}
+      ]
+    },
+    {
+      "id": "chair", "label": "desk chair", "category": "chair", "fuel": "upholstered_foam",
+      "is_ignition_source": false,
+      "position": {"x": 2.65, "y": 0.9, "z": 0.0},
+      "size": {"width": 0.45, "depth": 0.45, "height": 0.9},
+      "rotation_deg": 90,
+      "parts": [
+        {"shape": "box", "center": {"x": 0, "y": 0, "z": 0.45}, "size": {"width": 0.45, "depth": 0.45, "height": 0.06}, "rotation_deg": 0, "color": "#4a4f57"},
+        {"shape": "box", "center": {"x": 0, "y": 0.2, "z": 0.7}, "size": {"width": 0.45, "depth": 0.04, "height": 0.4}, "rotation_deg": 0, "color": "#4a4f57"},
+        {"shape": "cylinder", "center": {"x": -0.19, "y": -0.19, "z": 0.21}, "size": {"width": 0.03, "depth": 0.03, "height": 0.42}, "rotation_deg": 0, "color": "#222222"},
+        {"shape": "cylinder", "center": {"x": 0.19, "y": -0.19, "z": 0.21}, "size": {"width": 0.03, "depth": 0.03, "height": 0.42}, "rotation_deg": 0, "color": "#222222"},
+        {"shape": "cylinder", "center": {"x": -0.19, "y": 0.19, "z": 0.21}, "size": {"width": 0.03, "depth": 0.03, "height": 0.42}, "rotation_deg": 0, "color": "#222222"},
+        {"shape": "cylinder", "center": {"x": 0.19, "y": 0.19, "z": 0.21}, "size": {"width": 0.03, "depth": 0.03, "height": 0.42}, "rotation_deg": 0, "color": "#222222"}
+      ]
+    },
+    {
+      "id": "power-strip", "label": "power strip with chargers", "category": "power strip",
+      "fuel": "electronics", "is_ignition_source": true,
+      "position": {"x": 3.42, "y": 0.5, "z": 0.0},
+      "size": {"width": 0.3, "depth": 0.06, "height": 0.04},
+      "rotation_deg": 90,
+      "parts": [
+        {"shape": "box", "center": {"x": 0, "y": 0, "z": 0.02}, "size": {"width": 0.3, "depth": 0.06, "height": 0.04}, "rotation_deg": 0, "color": "#f4f4f4"}
+      ]
+    },
+    {
+      "id": "plant", "label": "potted plant", "category": "plant", "fuel": "other",
+      "is_ignition_source": false,
+      "position": {"x": 3.3, "y": 1.9, "z": 0.0},
+      "size": {"width": 0.5, "depth": 0.5, "height": 0.9},
+      "rotation_deg": 0,
+      "parts": [
+        {"shape": "cylinder", "center": {"x": 0, "y": 0, "z": 0.17}, "size": {"width": 0.3, "depth": 0.3, "height": 0.34}, "rotation_deg": 0, "color": "#b5651d"},
+        {"shape": "sphere", "center": {"x": 0, "y": 0, "z": 0.62}, "size": {"width": 0.5, "depth": 0.5, "height": 0.56}, "rotation_deg": 0, "color": "#3d7a3a"}
+      ]
+    },
+    {
+      "id": "bedside-table", "label": "bedside table", "category": "table", "fuel": "wood",
+      "is_ignition_source": false,
+      "position": {"x": 1.8, "y": 3.75, "z": 0.0},
+      "size": {"width": 0.45, "depth": 0.4, "height": 0.5},
+      "rotation_deg": 0,
+      "parts": [
+        {"shape": "box", "center": {"x": 0, "y": 0, "z": 0.25}, "size": {"width": 0.45, "depth": 0.4, "height": 0.5}, "rotation_deg": 0, "color": "#6b4a2f"},
+        {"shape": "box", "center": {"x": 0, "y": -0.205, "z": 0.36}, "size": {"width": 0.38, "depth": 0.01, "height": 0.16}, "rotation_deg": 0, "color": "#7d5a3c"}
+      ]
+    },
+    {
+      "id": "lamp", "label": "bedside lamp", "category": "lamp", "fuel": "electronics",
+      "is_ignition_source": true,
+      "position": {"x": 1.8, "y": 3.75, "z": 0.5},
+      "size": {"width": 0.2, "depth": 0.2, "height": 0.4},
+      "rotation_deg": 0,
+      "parts": [
+        {"shape": "cylinder", "center": {"x": 0, "y": 0, "z": 0.01}, "size": {"width": 0.12, "depth": 0.12, "height": 0.02}, "rotation_deg": 0, "color": "#333333"},
+        {"shape": "cylinder", "center": {"x": 0, "y": 0, "z": 0.13}, "size": {"width": 0.02, "depth": 0.02, "height": 0.24}, "rotation_deg": 0, "color": "#333333"},
+        {"shape": "cylinder", "center": {"x": 0, "y": 0, "z": 0.32}, "size": {"width": 0.2, "depth": 0.2, "height": 0.16}, "rotation_deg": 0, "color": "#f3e3b5"}
+      ]
+    },
+    {
+      "id": "curtains", "label": "window curtains", "category": "curtain", "fuel": "textile",
+      "is_ignition_source": false,
+      "position": {"x": 1.9, "y": 4.12, "z": 0.2},
+      "size": {"width": 1.8, "depth": 0.1, "height": 2.2},
+      "rotation_deg": 0,
+      "parts": [
+        {"shape": "box", "center": {"x": -0.65, "y": 0, "z": 1.1}, "size": {"width": 0.5, "depth": 0.08, "height": 2.2}, "rotation_deg": 0, "color": "#9a7b9c"},
+        {"shape": "box", "center": {"x": 0.65, "y": 0, "z": 1.1}, "size": {"width": 0.5, "depth": 0.08, "height": 2.2}, "rotation_deg": 0, "color": "#9a7b9c"},
+        {"shape": "box", "center": {"x": 0, "y": 0, "z": 2.185}, "size": {"width": 1.8, "depth": 0.03, "height": 0.03}, "rotation_deg": 0, "color": "#2b2b2b"}
+      ]
+    },
+    {
+      "id": "rug", "label": "floor rug", "category": "rug", "fuel": "textile",
+      "is_ignition_source": false,
+      "position": {"x": 1.3, "y": 1.8, "z": 0.0},
+      "size": {"width": 1.4, "depth": 2.0, "height": 0.02},
+      "rotation_deg": 0,
+      "parts": [
+        {"shape": "box", "center": {"x": 0, "y": 0, "z": 0.01}, "size": {"width": 1.4, "depth": 2.0, "height": 0.02}, "rotation_deg": 0, "color": "#8c3f3f"}
+      ]
+    }
+  ],
+  "scale_references": ["Hand-authored sample with measured dimensions."],
+  "assumptions": ["Sample data, not a real room."],
+  "confidence": "high"
+}

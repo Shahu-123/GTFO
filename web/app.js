@@ -427,12 +427,13 @@ function legend(name, stops, ticks) {
     const span = el('span', { textContent: text });
     const at = ((value - min) / (max - min)) * 100;
     span.style.left = `${at}%`;
-    span.style.transform = `translateX(${at === 0 ? '0' : at === 100 ? '-100%' : '-50%'})`;
+    // End labels hug the ends; middle labels start at their value so they cannot overlap the left end.
+    span.style.transform = `translateX(${at === 100 ? '-100%' : at === 0 ? '0' : '-10%'})`;
     return span;
   }));
 }
 legend('heat', HEAT_STOPS, [[0, 'at once'], [60, '1 min'], [120, '2 min'], [240, '4 min or more']]);
-legend('danger', HARM_STOPS, [[0, '0 unharmed'], [0.3, '0.3 harmful to a child or older person'], [1, '1 does not get out']]);
+legend('danger', HARM_STOPS, [[0, '0 unharmed'], [0.3, '0.3 could overcome a child or older person'], [1, '1 does not get out']]);
 
 // ---- Room loading ----
 

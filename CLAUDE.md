@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Firesim turns a phone walkthrough video of a room into a 3D scene, simulates a fire in it
+GTFO (Get the fire out, Python package `firesim`) turns a phone walkthrough video of a room into a 3D scene, simulates a fire in it
 and a person escaping, and shows which areas and items make the room dangerous. All four
 stages are built for a single room: video to 3D room, fire simulation, one occupant
 escaping, and a risk analysis over many fires and occupants, with playback in the browser.

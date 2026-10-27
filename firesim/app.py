@@ -24,7 +24,7 @@ SAMPLE_ROOM = ROOT / "tests" / "fixtures" / "sample_room.json"
 ROOM_ID = re.compile(r"^[0-9a-f]{12}$")
 CHUNK = 1024 * 1024
 
-app = FastAPI(title="Firesim")
+app = FastAPI(title="GTFO")
 
 
 class RoomResult(BaseModel):

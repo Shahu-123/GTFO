@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "firesim"
 version = "0.1.0"
-description = "Home fire escape simulator: video to 3D room, fire model, escape simulation"
+description = "GTFO (Get the fire out): video of a room to 3D model, fire and escape simulation, risk analysis"
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.115",

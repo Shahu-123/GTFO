@@ -32,7 +32,7 @@ def test_upload_without_api_key_is_503(client: TestClient) -> None:
 
 
 def test_index_is_served(client: TestClient) -> None:
-    assert "Firesim" in client.get("/").text
+    assert "GTFO" in client.get("/").text
 
 
 def test_fire_simulation_endpoint(client: TestClient) -> None:
